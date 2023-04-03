@@ -1,3 +1,5 @@
+from Product import *
+
 class Cart:
     def __init__(self, total_price = 0):
         self.__items = []
