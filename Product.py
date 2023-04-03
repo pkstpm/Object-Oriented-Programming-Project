@@ -14,9 +14,33 @@ class Product:
     def reviews(self):
         return self.__reviews
     @reviews.setter
-    def set_review(self,reviews):
+    def set_reviews(self,reviews):
         self.__reviews = reviews
         return self.__reviews
+    
+    @property
+    def name(self):
+        return self.__name
+    @name.setter
+    def set_review(self,name):
+        self.__name = name
+        return self.__name
+    
+    @property
+    def overview(self):
+        return self.__overview
+    @overview.setter
+    def set_review(self,overview):
+        self.__overview = overview
+        return self.__overview
+    
+    @property
+    def price(self):
+        return self.__price
+    @price.setter
+    def set_review(self,price):
+        self.__price = price
+        return self.__price
     
     def add_review(self, rating, comment):
         new_review = Review(rating,comment)
@@ -31,6 +55,9 @@ class Product:
         else:
             total_rating = sum(review.rating for review in self.reviews)
             return total_rating/len(self.reviews)
+    
+    def __str__(self):
+        return f"Name: {self.name}\nDescription: {self.overview}\nPrice: {self.price}\nAverage Rating: {self.average_rating()}"
 
 class Keyboard(Product):
     def __init__(self, name, product_id, price, promotion_price, overview, quantity, keyboard_switch, keyboard_keycap, keys, casecolor, status="available"):
