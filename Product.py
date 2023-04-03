@@ -6,8 +6,8 @@ class Product:
         self._promotion_price = promotion_price
         self._overview = overview
         self._quantity = quantity
+        self._status = status
         self.review = []
-
 class Keyboard(Product):
     def __init__(self, name, product_id, price, promotion_price, overview, quantity, keyboard_switch, keyboard_keycap, keys, casecolor, status="available"):
         super().__init__(name, product_id, price, promotion_price, overview, quantity, status)
