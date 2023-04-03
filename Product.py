@@ -1,3 +1,4 @@
+import Review
 class Product:
     def __init__(self, name, product_id, price, promotion_price, overview, quantity, status = "available"):
         self._name = name
@@ -6,7 +7,20 @@ class Product:
         self._promotion_price = promotion_price
         self._overview = overview
         self._quantity = quantity
-        self.review = []
+        self.__status = status
+        self.__review = []
+
+    @property
+    def review(self):
+        return self.__review
+    @review.setter
+    def set_review(self,review):
+        self.__review = review
+        return self.__review
+    
+    def add_review(self, rating, comment):
+        new_review = Review(rating,comment)
+        self.review.append(new_review)
 
 class Keyboard(Product):
     def __init__(self, name, product_id, price, promotion_price, overview, quantity, keyboard_switch, keyboard_keycap, keys, casecolor, status="available"):
