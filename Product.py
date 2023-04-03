@@ -8,22 +8,29 @@ class Product:
         self._overview = overview
         self._quantity = quantity
         self.__status = status
-        self.__review = []
+        self.__reviews = []
 
     @property
-    def review(self):
-        return self.__review
-    @review.setter
-    def set_review(self,review):
-        self.__review = review
-        return self.__review
+    def reviews(self):
+        return self.__reviews
+    @reviews.setter
+    def set_review(self,reviews):
+        self.__reviews = reviews
+        return self.__reviews
     
     def add_review(self, rating, comment):
         new_review = Review(rating,comment)
-        self.review.append(new_review)
+        self.reviews.append(new_review)
 
-    def remove_review(self,review):
-        self.review.remove(review)
+    def remove_review(self,reviews):
+        self.reviews.remove(reviews)
+
+    def average_rating(self):
+        if len(self.reviews) == 0:
+            return 0
+        else:
+            total_rating = sum(review.rating for review in self.reviews)
+            return total_rating/len(self.reviews)
 
 class Keyboard(Product):
     def __init__(self, name, product_id, price, promotion_price, overview, quantity, keyboard_switch, keyboard_keycap, keys, casecolor, status="available"):
