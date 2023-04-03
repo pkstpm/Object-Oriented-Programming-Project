@@ -22,6 +22,9 @@ class Product:
         new_review = Review(rating,comment)
         self.review.append(new_review)
 
+    def remove_review(self,review):
+        self.review.remove(review)
+
 class Keyboard(Product):
     def __init__(self, name, product_id, price, promotion_price, overview, quantity, keyboard_switch, keyboard_keycap, keys, casecolor, status="available"):
         super().__init__(name, product_id, price, promotion_price, overview, quantity, status)
