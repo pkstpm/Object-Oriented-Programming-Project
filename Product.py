@@ -1,3 +1,5 @@
+from Review import *
+
 class Product:
     ID = 0
 
@@ -74,6 +76,23 @@ class Product:
         if self._quantity < quantity:
             raise Exception(f"Insufficient quantity of {self.name}")
         self._quantity -= quantity
+
+    def add_review(self, rating, comment):
+        new_review = Review(rating,comment)
+        self.reviews.append(new_review)
+
+    def remove_review(self,reviews):
+        self.reviews.remove(reviews)
+
+    def average_rating(self):
+        if len(self.reviews) == 0:
+            return 0
+        else:
+            total_rating = sum([review.rating for review in self.reviews])
+            return total_rating/len(self.reviews)
+    
+    def __str__(self):
+        return f"Name: {self.name}\nDescription: {self.overview}\nPrice: {self.price}\nAverage Rating: {self.average_rating()}"
 
 class Keyboard(Product):
     def __init__(self, name, price, promotion_price, overview, quantity, keyboard_switch, keyboard_keycap, keys, casecolor, status="available"):
