@@ -1,46 +1,83 @@
 class Product:
-    def __init__(self, name, product_id, price, promotion_price, overview, quantity, status = "available"):
+    ID = 0
+
+    def __init__(self, name, price, promotion_price, overview, quantity, status = "available"):
         self._name = name
-        self._product_id = product_id
         self._price = price
         self._promotion_price = promotion_price
         self._overview = overview
         self._quantity = quantity
         self._status = status
         self._review = []
+        self._product_id = Product.ID
+        Product.ID += 1
+
+
+    @property
+    def name(self):
+        return self._name
+    @name.setter
+    def set_name(self, name):
+        self._name = name
+        return self._name
+    
+    @property
+    def quantity(self):
+        return self._quantity
+    @quantity.setter
+    def set_quantity(self, quantity):
+        self._quantity = quantity
+        return self._quantity
+
+    @property
+    def price(self):
+        return self._price
+    @price.setter
+    def set_price(self, price):
+        self._price = price
+        return self._price
+    
+    @property
+    def promotion_price(self):
+        return self._promotion_price
+    @promotion_price.setter
+    def set_promotion_price(self, promotion_price):
+        self._promotion_price = promotion_price
+        return self._promotion_price
+
+    @property
+    def status(self):
+        return self._status
+    @status.setter
+    def set_status(self, status):
+        self._status = status
+        return self._status
+    
+    @property
+    def overview(self):
+        return self._overview
+    @overview.setter
+    def set_overview(self, overview):
+        self._overview = overview
+        return self._overview
+    
+    @property
+    def review(self):
+        return self._review
+    @review.setter
+    def set_review(self, review):
+        self._review = review
+        return self._review
+    
 
     def reduce_quantity(self, quantity):
         if self._quantity < quantity:
             raise Exception(f"Insufficient quantity of {self.name}")
         self._quantity -= quantity
 
-    @property
-    def name(self):
-        return self._name
-    
-    @property
-    def quantity(self):
-        return self._quantity
-
-    @property
-    def price(self):
-        return self._price
-    
-    @property
-    def promotion_price(self):
-        return self._promotion_price
-
-    @property
-    def status(self):
-        return self._status
-    
-    @property
-    def overview(self):
-        return self._overview
-
 class Keyboard(Product):
-    def __init__(self, name, product_id, price, promotion_price, overview, quantity, keyboard_switch, keyboard_keycap, keys, casecolor, status="available"):
-        super().__init__(name, product_id, price, promotion_price, overview, quantity, status)
+    def __init__(self, name, price, promotion_price, overview, quantity, keyboard_switch, keyboard_keycap, keys, casecolor, status="available"):
+        super().__init__(name, price, promotion_price, overview, quantity, status)
         self.__keyboard_keycap = keyboard_keycap
         self.__keyboard_switch = keyboard_switch
         self.__keys = keys
@@ -63,8 +100,8 @@ class Keyboard(Product):
         return self.__casecolor
 
 class Switch(Product):
-    def __init__(self, name, product_id, price, promotion_price, overview, quantity, variation, spring_weight, type_switch, status="available"):
-        super().__init__(name, product_id, price, promotion_price, overview, quantity, status)
+    def __init__(self, name, price, promotion_price, overview, quantity, variation, spring_weight, type_switch, status="available"):
+        super().__init__(name, price, promotion_price, overview, quantity, status)
         self.__variation = variation
         self.__spring_weight = spring_weight
         self.__type_switch = type_switch
@@ -81,8 +118,8 @@ class Switch(Product):
     def type_switch(self):
         return self.__type_switch
 class Keycap(Product):
-    def __init__(self, name, product_id, price, promotion_price, overview, quantity, kit, profile, type_keycap, status="available"):
-        super().__init__(name, product_id, price, promotion_price, overview, quantity, status)
+    def __init__(self, name, price, promotion_price, overview, quantity, kit, profile, type_keycap, status="available"):
+        super().__init__(name, price, promotion_price, overview, quantity, status)
         self.__kit = kit
         self.__profile = profile
         self.__type_keycap = type_keycap
