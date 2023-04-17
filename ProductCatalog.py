@@ -19,7 +19,7 @@ class ProductCatalog:
     def search_product_by_category(self,category):
         matching_products = []
         for product in self.products:
-            if isinstance(product, category):
+            if (product._category == category):
                 matching_products.append(product)
         return matching_products
         
@@ -36,24 +36,25 @@ catalog.add_product_to_catalog(Keycap('Keycap 1', 'KC001', 50.0, 40.0, 'A set of
 catalog.add_product_to_catalog(Keycap('Keycap 2', 'KC001', 50.0, 40.0, 'A set of keycaps for mechanical keyboards', 20, 'Base', 'Cherry', 'Sculpted'))
 
 # Search for keyboards
-keyboardlist = []
-keyboard = catalog.search_product_by_category(Keyboard)
-for keyboard in keyboard:
-    keyboardlist.append(keyboard)
-print(keyboardlist)
+# keyboardlist = []
+# keyboard = catalog.search_product_by_category(Keyboard)
+# for keyboard in keyboard:
+#     keyboardlist.append(keyboard)
+# print(keyboardlist)
 
-# Search for switches
-switchlist = []
-switch = catalog.search_product_by_category(Switch)
-for switch in switch:
-    switchlist.append(switch)
-print(switchlist)
+# # Search for switches
+# switchlist = []
+# switch = catalog.search_product_by_category(Switch)
+# for switch in switch:
+#     switchlist.append(switch)
+# print(switchlist)
 
-# Search for keycaps
-keycaplist = []
-keycap = catalog.search_product_by_category(Keycap)
-for keycap in keycap:
-    keycaplist.append(keycap)
-print(keycaplist)
+# # Search for keycaps
+# keycaplist = []
+# keycap = catalog.search_product_by_category(Keycap)
+# for keycap in keycap:
+#     keycaplist.append(keycap)
+# print(keycaplist)
 
- 
+# item = catalog.search_product_by_name("Keyboard 1")
+# print(item)
