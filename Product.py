@@ -91,7 +91,7 @@ class Product:
             total_rating = sum([review.rating for review in self.reviews])
             return total_rating/len(self.reviews)
     
-    def __str__(self):
+    def view_product(self):
         return f"Name: {self.name}\nDescription: {self.overview}\nPrice: {self.price}\nAverage Rating: {self.average_rating()}"
 
 class Keyboard(Product):
